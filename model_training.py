@@ -198,6 +198,7 @@ class TensorFlowObjectDetectionSetup:
         self._update_pipeline_config()
     
     def run_training_script(self):
+        self._update_pipeline_config()
         # Constructing the PYTHONPATH
         models_research_path = os.path.join(os.getcwd(), 'models', 'research')
         object_detection_path = os.path.join(models_research_path, 'object_detection')
