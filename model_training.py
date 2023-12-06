@@ -5,6 +5,9 @@ import sys
 from model_config import MODELS_CONFIG
 from time import sleep
 import glob
+import shutil
+import urllib.request
+import tarfile
 
 # Global base path
 BASE_PATH = "content"
@@ -50,7 +53,7 @@ def setup_tensorflow_object_detection(num_steps=1000, num_eval_steps=50, selecte
 
     return MODEL, pipeline_file, batch_size
 
-# Install model zoo and 
+# Install model zoo and compile 
 def install_model_directory():
     repo_url = 'https://github.com/tensorflow/models.git'
     subprocess.run(['git', 'clone', '--quiet', repo_url], check=True)
@@ -63,4 +66,44 @@ def install_model_directory():
     for proto_file in proto_files:
         subprocess.run(['protoc', '--proto_path=' + object_detection_protos_dir, '--python_out=' + models_research_dir, proto_file], check=True)
 
+def prepare_tfrecord_files():
+    source_dir = os.path.join('Wildfire')
+    target_dir = os.path.join('tensorflow-object-detection-faster-rcnn', 'data')
 
+    # Copy training and test data
+    for dataset_type in ['train', 'test']:
+        source_dataset_dir = os.path.join(source_dir, dataset_type)
+        target_dataset_dir = os.path.join(target_dir, dataset_type)
+        if os.path.exists(source_dataset_dir):
+            shutil.copytree(source_dataset_dir, target_dataset_dir)
+        else:
+            print(f"Dataset directory {source_dataset_dir} does not exist.")
+
+def download_pretrained_model(model_name, model_download_link):
+    MODEL_FILE = MODEL + '.tar.gz'
+
+    # Check if the model file already exists
+    if not os.path.exists(MODEL_FILE):
+        print("Downloading model file:", MODEL_FILE)
+        urllib.request.urlretrieve(DOWNLOAD_BASE + MODEL_FILE, MODEL_FILE)
+
+    # Extract the model file
+    print("Extracting model file:", MODEL_FILE)
+    with tarfile.open(os.path.join(os.getcwd(), MODEL_FILE)) as tar:
+        tar.extractall()
+
+    # Clean up by removing the tar file
+    os.remove(MODEL_FILE)
+
+    # Check if the destination directory exists, and if so, remove it
+    if os.path.exists('models/research/pretrained_model'):
+        shutil.rmtree('models/research/pretrained_model')
+
+    # Rename the extracted folder to the destination directory
+    os.rename(MODEL, 'models/research/pretrained_model')
+    print("Model is ready in directory:", 'models/research/pretrained_model')
+
+MODEL = 'ssd_mobilenet_v2_fpnlite_320x320_coco17_tpu-8'
+DOWNLOAD_BASE = 'http://download.tensorflow.org/models/object_detection/tf2/20200711/'
+
+download_pretrained_model(MODEL, DOWNLOAD_BASE)
