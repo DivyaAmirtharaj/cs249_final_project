@@ -227,4 +227,4 @@ class TensorFlowObjectDetectionSetup:
 setup = TensorFlowObjectDetectionSetup()
 #setup.download_repos()
 #setup.training_pipeline()
-setup.run_training_script()
+#setup.run_training_script()
