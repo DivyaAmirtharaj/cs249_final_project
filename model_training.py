@@ -57,7 +57,7 @@ class TensorFlowObjectDetectionSetup:
     # Download model zoo and compile 
     def _download_model_repo(self):
         repo_url = 'https://github.com/tensorflow/models.git'
-        #subprocess.run(['git', 'clone', '--quiet', repo_url], check=True)
+        subprocess.run(['git', 'clone', '--quiet', repo_url], check=True)
 
         models_research_dir = os.path.join(self.base_path, 'models/research')
         protos_path = os.path.join(models_research_dir, 'object_detection', 'protos', '*.proto')
@@ -197,7 +197,7 @@ class TensorFlowObjectDetectionSetup:
         self._update_pipeline_config()
     
     def run_training_script(self):
-        self._update_pipeline_config()
+        #self._update_pipeline_config()
         # Constructing the PYTHONPATH
         models_research_path = os.path.join(os.getcwd(), 'models', 'research')
         object_detection_path = os.path.join(models_research_path, 'object_detection')

@@ -1,23 +1,39 @@
 ## Installation
 
-Activate virtual environment:
+Activate virtual environment (must be Python 3.10, and install basic requirements):
 ```
+python3.10 -m venv venv
 source venv/bin/activate
-```
-
-Install requirements:
-```
 pip install -r requirements.txt
 ```
 
-you might have to potentially download these separately sorry:
+Finish additional nstallation prior to running the script:
 ```
-cd models/research
-# Compile protos.
-protoc object_detection/protos/*.proto --python_out=.
-# Install TensorFlow Object Detection API.
-cp object_detection/packages/tf2/setup.py .
-python -m pip install --use-feature=2020-resolver .
+pip install tensorflow==2.15.0
+pip install roboflow
+
+pip install tf_slim
+brew install protobuf
+pip install -q Cython contextlib2 pillow lxml matplotlib
+pip install -q pycocotools
+pip install tensorflow_io
+pip install tf-models-official --no-deps
 ```
 
-also you might have to do some work with versioning with tensorflow to get it to work (aka downloading 2.15.0 first, and then installing everything else, and then reinstalling and downgrading to 2.13.0)
+Uncomment setup.download_repos() and run.  Then once completed, recomment it out and run setup.training_pipeline().  If this fails, proceed with the next steps, and then retry:
+```
+cd content/models/research
+protoc object_detection/protos/*.proto --python_out=.
+cp object_detection/packages/tf2/setup.py .
+python -m pip install . --no-deps
+```
+
+Recomment out setup.training_pipeline() and run the following:
+```
+pip install tensorflow==2.13.0
+pip install gin
+pip install gin-config
+```
+
+Uncomment setup.run_training_script() to train.
+
