@@ -28,7 +28,7 @@ class TensorFlowObjectDetectionSetup:
 
         self.model_name = MODELS_CONFIG[self.selected_model]['model_name']
         self.pipeline_file = self.model_config['pipeline_file']
-        self.pipeline_fname = None
+        self.pipeline_fname = self.pipeline_fname = os.path.join('models/research/object_detection/configs/tf2/', self.pipeline_file)
         self.batch_size = self.model_config['batch_size']
     
     # Download wildfire dataset
@@ -137,7 +137,6 @@ class TensorFlowObjectDetectionSetup:
         print(os.listdir(directory_path))
 
     def _configure_training_pipeline(self):
-        self.pipeline_fname = os.path.join('models/research/object_detection/configs/tf2/', self.pipeline_file)
         assert os.path.isfile(self.pipeline_fname), '`{}` not exist'.format(self.pipeline_fname)
     
     def _get_num_classes(self, pbtxt_fname):
@@ -205,14 +204,13 @@ class TensorFlowObjectDetectionSetup:
         pythonpath = os.environ.get('PYTHONPATH', '')
         new_pythonpath = ':'.join([models_research_path, object_detection_path, pythonpath])
 
-        pipeline_fname = os.path.join('models', 'research', 'object_detection', 'configs', 'tf2', self.pipeline_file)
         model_dir = 'training/'
 
         # Construct the command
         command = [
             sys.executable, 
             "models/research/object_detection/model_main_tf2.py",
-            f"--pipeline_config_path={pipeline_fname}",
+            f"--pipeline_config_path={self.pipeline_fname}",
             f"--model_dir={model_dir}",
             "--alsologtostderr",
             f"--num_train_steps={self.num_train_steps}",
