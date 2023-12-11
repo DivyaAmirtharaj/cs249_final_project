@@ -5,6 +5,8 @@ https://universe.roboflow.com/wildfire-xpwrf/wildfire-4tdl8
 
 
 ### Method 2: Tensorflow Pipeline
+Full working directory: https://drive.google.com/drive/folders/1JGdd8-_YhyVWZcIfEldzXkmxJmdTw7t0?usp=drive_link
+
 Activate virtual environment (must be Python 3.10, and install basic requirements):
 ```
 python3.10 -m venv venv
