@@ -1,6 +1,9 @@
 ## Model Approaches & Methodology
 
 ### Method 1: Roboflow
+https://universe.roboflow.com/wildfire-xpwrf/wildfire-4tdl8
+
+
 ### Method 2: Tensorflow Pipeline
 Activate virtual environment (must be Python 3.10, and install basic requirements):
 ```
@@ -9,7 +12,7 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-Finish additional nstallation prior to running the script:
+Finish additional installation prior to running the script:
 ```
 pip install tensorflow==2.15.0
 pip install roboflow
