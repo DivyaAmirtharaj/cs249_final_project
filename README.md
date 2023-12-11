@@ -1,4 +1,7 @@
-## Installation
+## Model Approaches & Methodology
+
+### Method 1: Roboflow
+### Method 2: Tensorflow Pipeline
 
 Activate virtual environment (must be Python 3.10, and install basic requirements):
 ```
@@ -38,3 +41,7 @@ pip install gin-config
 
 Uncomment setup.run_training_script() to train.
 
+
+### Method 3: YOLO
+
+## Deployment
