@@ -8,7 +8,7 @@ import tarfile
 import re
 from time import sleep
 from roboflow import Roboflow
-from model_config import MODELS_CONFIG
+from tensorflow_pipeline.model_config import MODELS_CONFIG
 from time import sleep
 
 class TensorFlowObjectDetectionSetup:
