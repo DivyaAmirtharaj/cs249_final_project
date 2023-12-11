@@ -12,7 +12,7 @@ from model_config import MODELS_CONFIG
 from time import sleep
 
 class TensorFlowObjectDetectionSetup:
-    def __init__(self, base_path="content", selected_model='ssd_mobilenet_v2', num_train_steps=200, num_eval_steps=50):
+    def __init__(self, base_path="content", selected_model='ssd_mobilenet_v2', num_train_steps=100000, num_eval_steps=50):
         self.base_path = base_path
         os.chdir(self.base_path)
 
@@ -227,4 +227,4 @@ class TensorFlowObjectDetectionSetup:
 setup = TensorFlowObjectDetectionSetup()
 #setup.download_repos()
 #setup.training_pipeline()
-#setup.run_training_script()
+setup.run_training_script()

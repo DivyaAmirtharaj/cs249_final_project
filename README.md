@@ -32,6 +32,7 @@ Recomment out setup.training_pipeline() and run the following:
 ```
 pip install tensorflow==2.13.0
 pip install gin
+pip install lvis
 pip install gin-config
 ```
 
