@@ -7,7 +7,7 @@
 
 
 ### Method 2: MobileNet & Tensorflow
-**Full Directory:** https://drive.google.com/drive/folders/1JGdd8-_YhyVWZcIfEldzXkmxJmdTw7t0?usp=drive_link
+**Full Directory:** https://drive.google.com/drive/folders/1JGdd8-_YhyVWZcIfEldzXkmxJmdTw7t0?usp=sharing
 
 + ```model_config.py```: Configuration to get the relevant model zoo 
 + ```model_training.py```: Set up the full training pipeline for Tensorflow
