@@ -57,7 +57,7 @@ Uncomment setup.run_training_script() to train.<br><br>
 
 ### Method 3: YOLOv7 & Pytorch
 **Full Directory:** https://drive.google.com/drive/folders/1yn5tAXYjLVGM7h3v78Bj1WopDT_uTs5S?usp=sharing
-+ ```yolov7_detect.py```: 
-+ ```yolov7_train.py```: 
-+ ```yolov7_test```: 
++ ```yolov7_detect.py```: Generates the bounding boxes
++ ```yolov7_train.py```: Trains the model
++ ```yolov7_test```: Tests the model
 + ```yolov7_quantize.py```: Quantization for YOLOv7 model 
