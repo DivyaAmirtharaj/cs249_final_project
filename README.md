@@ -1,9 +1,9 @@
 ## Model Approaches & Methodology
 
 ### Method 1: Roboflow
-**Project Workspace:** https://universe.roboflow.com/wildfire-xpwrf/wildfire-4tdl8 <br><br>
+**Project Workspace:** https://universe.roboflow.com/wildfire-xpwrf/wildfire-4tdl8
 + ```Wildfire```: Generated TFRecords used in the TF pipeline
-+ ```roboflow_yolov8_smokedetection.ipynb```: YOLOv8 notebook using Roboflow
++ ```roboflow_yolov8_smokedetection.ipynb```: YOLOv8 notebook using Roboflow <br><br>
 
 
 ### Method 2: MobileNet & Tensorflow
@@ -11,7 +11,7 @@
 
 + ```model_config.py```: Configuration to get the relevant model zoo 
 + ```model_training.py```: Set up the full training pipeline for Tensorflow
-+ ```inference.py```: Inference script 
++ ```model_testing.ipynb```: Inference script 
 + ```job_config.slurm```: Job configuration to run on FAS RC
 
 **Installation:**
