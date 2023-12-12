@@ -2,9 +2,11 @@
 
 ### Method 1: Roboflow
 **Project Workspace:** https://universe.roboflow.com/wildfire-xpwrf/wildfire-4tdl8 <br><br>
++ ```Wildfire```: Generated TFRecords used in the TF pipeline
++ ```roboflow_yolov8_smokedetection.ipynb```: YOLOv8 notebook using Roboflow
 
 
-### Method 2: Tensorflow Pipeline
+### Method 2: MobileNet & Tensorflow
 **Full Directory:** https://drive.google.com/drive/folders/1JGdd8-_YhyVWZcIfEldzXkmxJmdTw7t0?usp=drive_link
 
 + ```model_config.py```: Configuration to get the relevant model zoo 
@@ -53,9 +55,9 @@ pip install gin-config
 Uncomment setup.run_training_script() to train.<br><br>
 
 
-### Method 3: YOLO
+### Method 3: YOLOv7 & Pytorch
 **Full Directory:** https://drive.google.com/drive/folders/1yn5tAXYjLVGM7h3v78Bj1WopDT_uTs5S?usp=sharing
-quantize_2.py: quantization
-best_unquantized: trained model weights
-quantized_model_hen: quantized model weights
-
++ ```yolov7_detect.py```: 
++ ```yolov7_train.py```: 
++ ```yolov7_test```: 
++ ```yolov7_quantize.py```: Quantization for YOLOv7 model 
