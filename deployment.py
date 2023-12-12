@@ -2,7 +2,6 @@
 DEPLOYMENT TO RASPBERRY PI VIA ROBOFLOW
 """
 import os
-
 from roboflow import Roboflow
 
 rf = Roboflow(api_key="48owXBimC5K7mCyJkRgg")
