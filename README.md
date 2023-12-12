@@ -48,6 +48,3 @@ Uncomment setup.run_training_script() to train.
 
 ### Method 3: YOLO
 https://drive.google.com/drive/folders/1yn5tAXYjLVGM7h3v78Bj1WopDT_uTs5S?usp=sharing
-
-
-## Deployment
